@@ -1,0 +1,38 @@
+﻿@model BookStore.Models.DTO.BookListVm
+@{
+}
+
+<div class="tbl-container">
+    <h2>Movies</h2>
+
+    <table>
+        <tr>
+            <th>Book Name</th>
+            <th>Genre</th>
+            <th>Price</th>
+            <th>LauchYear</th>
+            <th>Image</th>
+            <th>Author</th>
+            <th>Action</th>
+        </tr>
+        @foreach(var item in Model.Books){
+        <tr>
+            <td>@item.BookName</td>
+                <td>@item.GenreNames</td>
+                <td>@item.Price</td>
+                <td>@item.LaunchYear</td>
+            <td><img style="height:60px;width:80px" src="/Uploads/@item.BookImage"/></td>
+            
+                <td>@item.Author</td>
+                <td>
+                    <a href="/Books/Edit?id=@item.Id" class="btn btn-default"><i class="fa-solid fa-pen-to-square"></i>Edit</a>
+                <a onclick="return window.confirm('Are you sure?')" href="/Books/Delete?id=@item.Id" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        }
+     
+    </table>
+    <div class="input-container">
+        <a href="/Books/Add" class="btn btn-sec">Back</a>
+    </div>
+</div>

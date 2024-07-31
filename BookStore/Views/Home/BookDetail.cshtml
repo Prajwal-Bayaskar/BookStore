@@ -1,0 +1,26 @@
+﻿@model BookStore.Models.Domain.Books
+@{
+}
+<div class="movie-detail w-80 m-auto">
+    <div class="img-container">
+        <img alt="image" src="/Uploads/@Model.BookImage">
+    </div>
+
+    <div class="detail-container">
+        <h3>@Model.BookName</h3>
+        <h4>@Model.GenreNames</h4>
+        <h4>@Model.Price</h4>
+        <h4>@Model.Author</h4>
+      
+        <br />
+        <br />
+       
+       
+    </div>
+
+    
+</div>
+
+<div>
+    <a href="/Home/Index" class="btn btn-default">Back</a>
+</div>

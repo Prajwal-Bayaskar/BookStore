@@ -1,0 +1,54 @@
+﻿@model BookStore.Models.DTO.BookListVm
+@{
+    Layout = "_Layout";
+}
+<section class="search-bar">
+    <form method="get" asp-action="Index">
+        <input type="text" name="term" placeholder="search here">
+        <button type="submit" class="btn btn-secondary">Search</></button>
+    </form>
+</section>
+<section class="movies">
+
+    @foreach (var book in Model.Books)
+    {
+        <div class="movie-card" onclick="window.location.href='/Home/BookDetail?bookId=@book.Id'">
+            <div class="movie-image">
+                <img src="/Uploads/@book.BookImage">
+            </div>
+            <div class="movie-info">
+               <br />
+               <b> @book.BookName</b>   <br />            
+               <b> $ @book.Price</b>
+                @* <h5>@book.Author</h5>  *@
+               
+            </div>
+            <br />
+            <form asp-action="AddToCart" asp-controller="Cart" method="post">
+            <input type="hidden" name="bookId" value="@book.Id" />
+             <input type="hidden" name="quantity" value="1" min="1" />
+            <button class="cart-btn" type="submit" class="btn btn-secondary"> <i class="bi bi-cart-check">Add to Cart</i></button>
+            </form>
+        </div>
+    }
+</section>
+
+<div class="pagination">
+    @for (int i = 1; i <= Model.TotalPages; i++)
+    {
+        if (i == Model.CurrentPage)
+        {
+            <a href="/Home/Index?currentPage=@i&term=@Model.Term" class="active">@i</a>
+        }
+        else
+        {
+            <a href="/Home/Index?currentPage=@i&term=@Model.Term">@i</a>
+
+        }
+    }
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+   
+  
+</div>
