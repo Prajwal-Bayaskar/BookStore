@@ -1,4 +1,5 @@
-﻿using BookStore.Models.Domain;
+﻿using BookStore.Data;
+using BookStore.Models.Domain;
 using BookStore.Repositories.Abstract;
 
 namespace BookStore.Repositories.Implementation

@@ -1,12 +1,14 @@
 ﻿
 using BookStore.Models.Domain;
 using BookStore.Repositories.Abstract;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 
 namespace BookStore.Controllers
 {
+    [Authorize]
     public class BooksController : Controller
     {
         private readonly IBookService _bookService;

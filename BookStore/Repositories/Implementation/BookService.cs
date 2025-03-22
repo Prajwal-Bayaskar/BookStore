@@ -1,4 +1,5 @@
-﻿using BookStore.Models.Domain;
+﻿using BookStore.Data;
+using BookStore.Models.Domain;
 using BookStore.Models.DTO;
 using BookStore.Repositories.Abstract;
 
